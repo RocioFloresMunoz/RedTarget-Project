@@ -42,7 +42,6 @@ public class Player : MonoBehaviour
 
     [Header ("MiniGame")]
     [SerializeField] private MiniGameManager _miniGameManager;
-    private bool _canStart = false;
     
 
 
@@ -117,9 +116,9 @@ public class Player : MonoBehaviour
 
     public void StartMiniGame()
     {
-        if(_canStart = true && Input.GetKeyDown(KeyCode.E))
+        if(!_miniGameManager.IsMinigameRun() && Input.GetKeyDown(KeyCode.E))
         {
-            _miniGameManager.SetBoolStartMiniGame(_canStart);   
+            _miniGameManager.SetBoolStartMiniGame(true);   
         }
     }
 
@@ -138,10 +137,9 @@ public class Player : MonoBehaviour
             Destroy(other.gameObject);
         }
 
-        if(other.gameObject.CompareTag("Bell"))
+        if(other.gameObject.CompareTag("Bell") && !_miniGameManager.IsMinigameRun())
         {
             _feedbackCanvas.SetActive(true);
-            _canStart = true;
         }
 
         if(other.gameObject.CompareTag("RangeTest"))
@@ -153,5 +151,6 @@ public class Player : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         _feedbackCanvas.SetActive(false);
+        _rangeTestCanvas.SetActive(false);
     }
 }

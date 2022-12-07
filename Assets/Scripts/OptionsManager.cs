@@ -39,7 +39,7 @@ public class OptionsManager : MonoBehaviour
         _isPaused = false;
         Time.timeScale = 1f;
         _hud.SetActive(true);
-        _handGun.SetActive(false);
+        _handGun.SetActive(true);
         _optionsCanvas.SetActive(false);
     }
 

@@ -130,4 +130,8 @@ public class MiniGameManager : MonoBehaviour
         _timer = 15f;
         _feedbackCanvas.SetActive(true);
     }
+
+    public bool IsMinigameRun(){
+        return _isMiniGameRun;
+    }
 }
