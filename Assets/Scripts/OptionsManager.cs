@@ -8,9 +8,10 @@ public class OptionsManager : MonoBehaviour
     [SerializeField] private GameObject _optionsCanvas;
     [SerializeField] private GameObject _hud;
     [SerializeField] private GameObject _handGun;
+    [SerializeField] private GameObject _mute;
 
     private bool _isPaused = false;
-    
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -25,6 +26,7 @@ public class OptionsManager : MonoBehaviour
     
     public void Pause()
     {
+        if(AudioListener.volume>0) _mute.SetActive(false);
         _isPaused=true;
         Time.timeScale = 0f;
         _hud.SetActive(false);
