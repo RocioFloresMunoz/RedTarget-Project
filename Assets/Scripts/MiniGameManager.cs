@@ -127,7 +127,7 @@ public class MiniGameManager : MonoBehaviour
         _isFirstTime=false;
         PlayerPrefs.SetInt("FirstPlay",0);
 
-        _timer = 15f;
+        _timer = 30f;
         _feedbackCanvas.SetActive(true);
     }
 
